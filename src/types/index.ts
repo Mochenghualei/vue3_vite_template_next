@@ -7,3 +7,7 @@ export declare interface codeMessageMapTypes {
   500: string
   [key: string]: string
 }
+
+export declare interface instanceObject {
+  [key: string]: string;
+}

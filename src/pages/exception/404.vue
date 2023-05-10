@@ -3,6 +3,12 @@ export default {
   name: 'Page404',
 };
 </script>
+
+<script setup lang="ts">
+const router = useRouter()
+const message = ref('未取得该页面权限,请联系管理员...')
+</script>
+
 <template>
   <div class="wscn-http404-container">
     <div class="wscn-http404">
@@ -16,16 +22,12 @@ export default {
         <div class="bullshit__oops">发生了错误!</div>
         <div class="bullshit__headline">{{ message }}</div>
         <div class="bullshit__info">请检查您输入的网址是否正确，或点击下面的按钮返回主页。</div>
-        <a :href="homeURL" class="bullshit__return-home">返回首页</a>
+        <span @click="router.back()" class="bullshit__return-home">返回首页</span>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts">
-const homeURL = ref<string>('/');
-const message = computed(() => '未取得该页面的权限,请联系管理员...');
-</script>
 
 <style lang="scss" scoped>
 .wscn-http404-container {
@@ -216,6 +218,7 @@ const message = computed(() => '未取得该页面的权限,请联系管理员..
 
     &__return-home {
       display: block;
+      cursor: pointer;
       float: left;
       width: 110px;
       height: 36px;

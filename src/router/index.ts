@@ -14,36 +14,18 @@ const routes: Array<RouteRecordRaw> = [
 ]
 
 const router: Router = createRouter({
-  // 新的vue-router4 使用 history路由模式 和 base前缀
   history: createWebHistory(import.meta.env.VITE_BASE),
   routes,
 })
 
 // 未登录白名单
 // const whiteList = ['/login'];
-// 路由守卫
 router.beforeEach((to, from, next) => {
-  // 页签标题
   document.title = (to.meta.title as string) || import.meta.env.VITE_APP_TITLE
   if (!NProgress.isStarted()) {
     NProgress.start()
   }
-  // useDark
-  useDark()
   next()
-  // if (localStorage.getItem('token')) {
-  //   if (to.path === '/login') {
-  //     next('/home')
-  //   } else {
-  //     next()
-  //   }
-  // } else {
-  //   if (whiteList.includes(to.path)) {
-  //     next()
-  //   } else {
-  //     next('/login')
-  //   }
-  // }
 })
 
 router.afterEach((to, from) => {

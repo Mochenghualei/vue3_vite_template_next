@@ -8,13 +8,18 @@ export {}
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
     BaseCount: typeof import('./../components/BaseCount.vue')['default']
+    Components: typeof import('./../components/index.vue')['default']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElButtonplain: typeof import('element-plus/es')['ElButtonplain']
     ElCol: typeof import('element-plus/es')['ElCol']
     ElConfigProvider: typeof import('element-plus/es')['ElConfigProvider']
     ElIcon: typeof import('element-plus/es')['ElIcon']
     ElResult: typeof import('element-plus/es')['ElResult']
     ElRow: typeof import('element-plus/es')['ElRow']
+    README: typeof import('./../components/README.md')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    TheBaseCounter: typeof import('./../components/TheBaseCounter.vue')['default']
+    TheCounter: typeof import('./../components/TheCounter.vue')['default']
   }
 }

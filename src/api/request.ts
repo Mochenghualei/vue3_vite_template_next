@@ -1,7 +1,6 @@
 import axios, { AxiosInstance, InternalAxiosRequestConfig, AxiosResponse, AxiosError } from 'axios'
 import showCodeMessage from './code'
-import { ElMessage } from 'element-plus'
-import { formatJsonToUrlParams, instanceObject } from '@/utils/format'
+import { instanceObject } from "@/types"
 
 
 const baseURL = import.meta.env.DEV ? import.meta.env.VITE_APP_BASE_API : import.meta.env.VITE_APP_REQUEST_API + import.meta.env.VITE_APP_TRUE_API

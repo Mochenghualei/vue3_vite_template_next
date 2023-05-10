@@ -1,6 +1,6 @@
 import { defineConfig, loadEnv } from 'vite'
 import path from 'path'
-import presets from './presets/presets'
+import plugins from "./src/config/plugins"
 
 // https://vitejs.dev/config/
 export default ({ mode }) => {
@@ -8,7 +8,7 @@ export default ({ mode }) => {
   const env = loadEnv(mode, process.cwd())
   return defineConfig({
     base: env.VITE_ENV === 'dev' ? '/' : './',
-    plugins: presets(),
+    plugins: plugins(),
     // 别名设置
     resolve: {
       alias: {
@@ -49,7 +49,7 @@ export default ({ mode }) => {
         scss: {
           additionalData: `
           @use "@/styles/element/dark.scss" as *;
-          @import "@/styles/variables.scss";
+          @use "@/styles/variables.scss" as *;
         `,
           javascriptEnabled: true,
         },
@@ -64,11 +64,11 @@ export default ({ mode }) => {
                 if (atRule.name === 'charset') {
                   atRule.remove()
                 }
-              },
-            },
-          },
-        ],
-      },
-    },
+              }
+            }
+          }
+        ]
+      }
+    }
   })
 }

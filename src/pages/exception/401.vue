@@ -1,3 +1,19 @@
+<script lang="ts">
+export default {
+  name: 'Page401',
+};
+</script>
+
+<script setup lang="ts">
+const router = useRouter();
+const goBack = () => {
+  router.push({
+    name: 'index',
+  });
+};
+</script>
+
+
 <template>
   <el-row>
     <el-col>
@@ -9,12 +25,3 @@
     </el-col>
   </el-row>
 </template>
-
-<script setup lang="ts">
-const router = useRouter();
-const goBack = () => {
-  router.push({
-    name: 'home',
-  });
-};
-</script>
